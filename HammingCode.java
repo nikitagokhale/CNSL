@@ -32,22 +32,39 @@ public class HammingCodeClass
 //		System.out.print(pow);
 //		System.out.print(r);
 		
-		//Calculating parity of r
-		int[] message = new int[m+r];
-		for(int i=0;i<message.length;i++)
-			message[i] = -1;
+		//Calculating hamming code
+		System.out.println("Enter the digits:- ");
+		int[] HammingCodeArr = new int[m+r];
+		for(int i=0;i<HammingCodeArr.length;i++)
+			HammingCodeArr[i] = -1;
 		for(int i=1;i<=pow/2;i*=2)
-			message[i-1] = 0;
-		for(int i=message.length;i>0;i--)
+			HammingCodeArr[i-1] = 0;
+		for(int i=HammingCodeArr.length;i>0;i--)
 		{
-			if(message[i-1] == -1)
+			if(HammingCodeArr[i-1] == -1)
 			{
-				System.out.print("n>");
-				message[i-1] = sc.nextInt();
+				System.out.print(">");
+				HammingCodeArr[i-1] = sc.nextInt();
 			}
 		}
-		for(int i=message.length;i>0;i--)
-			System.out.print(message[i-1]);
+		System.out.print("Hamming code:- ");
+		for(int i=HammingCodeArr.length;i>0;i--)
+			System.out.print(HammingCodeArr[i-1]);
+		System.out.println();
+		
+		//Calculating parity to check for errors
+		int[] Rn = new int[r];
+		for(int i=0;i<Rn.length;i++)
+			Rn[i] = 0;
+		for(int i=0;i<Rn.length;i++)
+		{
+			int TakeNDropN=1, rn=0, parity = 0;
+			for(int j=0;j<i;j++)
+				TakeNDropN *= 2;
+			for(int j=TakeNDropN-1;j<HammingCodeArr.length;j++)
+			{
+				
+			}
+		}
 	}
-
 }
